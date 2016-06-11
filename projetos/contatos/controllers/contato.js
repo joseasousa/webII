@@ -1,5 +1,3 @@
-//Precisamos criar o controller, através do arquivoapp/controllers/contato.js:// app/controllers/contato.js
-// app/controllers/contato.js
 var contatos = [
     {
         _id: 1, nome: 'Contato Exemplo 1',
@@ -14,13 +12,21 @@ var contatos = [
         email: 'cont3@empresa.com.br'
     }
 ];
+
 module.exports = function () {
     var controller = {};
+
+    /**
+     * fucao que listas todos os contatos
+     */
     controller.listaContatos = function (req, res) {
         res.json(contatos);
     };
 
-    controller.listaContato = function (req, res) {
+    /**
+     * funcao que lista o contato pelo id 
+     */
+    controller.listaContatoId = function (req, res) {
         var idContato = req.params.id;
         var contato = contatos.filter(function (contato) {
             return contato._id == idContato;
@@ -29,6 +35,18 @@ module.exports = function () {
             res.json(contato) :
             res.status(404).send('Contato não encontrado');
     };
+
+    /**
+     * funcao que adciona um contato
+     */
+    controller.addContato = function(req,res){
+        var contato = req.body;
+        
+        contato._id = contatos.length+1;
+        contatos.push(contato);
+
+        res.json(contatos);
+    }
 
     return controller;
 }
