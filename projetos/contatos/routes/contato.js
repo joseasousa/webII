@@ -7,5 +7,7 @@ module.exports = function (app) {
         .post(controller.addContato);
 
     app.route('/contatos/:id')
-        .get(controller.listaContatoId);
+        .get(controller.listaContatoId)
+        .delete(controller.deleteContato)
+        .put(controller.updateContato);
 }
