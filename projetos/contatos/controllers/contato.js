@@ -48,5 +48,20 @@ module.exports = function () {
         res.json(contatos);
     }
 
+    controller.deleteContato = function(req,res){
+        var id = req.params.id;
+        var resul =contatos.slice(id);        
+
+        res.json(resul);
+    }
+
+    controller.updateContato = function(req,res){
+        var id = req.params.id;
+        var novoContato = req.body;
+        contatos[id-1]=novoContato;
+
+        res.json(contatos);
+    }
+
     return controller;
 }
