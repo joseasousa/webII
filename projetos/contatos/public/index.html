@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="contatos">
     <head>
         <title></title>
         <meta charset="UTF-8">
         
-    </head>
-    <body>
-    <h1>Teste</h1>
+    </head >  
+    <body ng-controller = "ContatosController" >
+        {{total}}
+    <button type="" ng-click="somar()">somar</button>
+    
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers/contatosController.js"></script> 
     </body>
 </html>

@@ -1,11 +1,12 @@
 module.exports = function (app) {
   var controller = {};
-  var Contato = app.models.contato;
+  var Contatos = app.models.contato;
+
   /**
    * fucao que listas todos os contatos
    */
   controller.listaContatos = function (req, res) {
-    Contato.find().exec()
+    Contatos.find().exec()
       .then(
         function (contatos) {
           res.json(contatos);
@@ -15,6 +16,7 @@ module.exports = function (app) {
           res.status(500).json(erro);
         }
     );
+
   };
 
   /**
@@ -22,7 +24,7 @@ module.exports = function (app) {
    */
   controller.listaContatoId = function (req, res) {
     var _id = req.params.id;
-    Contato.findById(_id).exec()
+    Contatos.findById(_id).exec()
       .then(function (contato) {
         if (!contato) throw new Error('Contato não encontrado');
         res.json(contato);
@@ -38,41 +40,40 @@ module.exports = function (app) {
    * funcao que adciona um contato
    */
   controller.addContato = function (req, res) {
-    Contato.create(req.body)
-      .then(
-        function (contato) {
-          res.status(201).json(contato);
-        },
-        function (erro) {
+    var contato = req.body;
+    Contatos.create(contato,
+      function (erro, contato) {
+        if (erro) {
           console.log(erro);
           res.status(500).json(erro);
-        });
+        }
+        res.status(201).json(contato);
+      });
   };
 
   controller.deleteContato = function (req, res) {
-    var _id = req.params.id;
-    Contato.remove({'_id': _id}).exec()
-      .then(
-        function () {
-          res.status(204).end();
-        },
-        function (erro) {
-          return console.error(erro);
-        }
-    );
+    var query = {'_id': req.params.id};
+    Contatos.remove(query, function (erro) {
+      if (erro) {
+        console.error(erro);
+        res.status(500).json(erro);
+      } else {
+        res.status(204).end();
+
+      }
+    });
   };
 
   controller.updateContato = function (req, res) {
-      var _id = req.params.id;
-    Contato.findByIdAndUpdate(_id, req.body).exec()
-      .then(
-        function (contato) {
+    var id = req.params.id;
+    Contatos.findByIdAndUpdate(id, req.body,
+      function (erro, contato) {
+        if (erro) {console.error(erro);
+          res.status(500).json(erro);} else {
           res.json(contato);
-        },
-        function (erro) {
-          console.error(erro);
-          res.status(500).json(erro);
-        });
+        }
+      });
+
   };
 
   return controller;
