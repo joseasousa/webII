@@ -28,17 +28,19 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <td>Id</td>
                         <td>Nome</td>
+                        <td>Email</td>
                         <td>Telefone</td>
                     </tr>
                 </thead>
 
                 <tbody class="table-striped">
-                    <tr ng-repeat="contato in contatos |  orderBy :'id' |filter: filtro">
-                        <td>{{contato.id}}</td>
-                        <td>{{contato.name}}</td>
-                        <td>{{contato.fone}}</td>
+                    <tr ng-repeat="contato in contatos | 
+                     orderBy :'nome' |
+                     filter: filtro">
+                        <td>{{contato.nome}}</td>
+                        <td>{{contato.email}}</td>
+                        <td>{{contato.telefone}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -54,7 +56,7 @@
 
 
     <script src="vendor/angular/angular.min.js"></script>
-    <script src="vendor/angular-route/angular-route.min.js"></script>
+
     <script src="js/main.js"></script>
     <script src="js/controllers/contatosController.js"></script>
 </body>
