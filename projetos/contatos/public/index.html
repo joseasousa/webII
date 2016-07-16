@@ -7,58 +7,19 @@
 
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css"></link>
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css"></link>
-
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css"></link>
 
 </head>
 
-<body ng-controller="contatosController">
-
-    <section class="container ">
-
-        <div class="jumbotron">
-            <h1 class="text-center">Contatos</h1>
-        </div>
-
-        <div class="row">
-            <input ng-model="filtro" type="search" placeholder="Digite um valor" class="form-control text-center">
-        </div>
-
-        <div class="row">
-
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <td>Nome</td>
-                        <td>Email</td>
-                        <td>Telefone</td>
-                    </tr>
-                </thead>
-
-                <tbody class="table-striped">
-                    <tr ng-repeat="contato in contatos | 
-                     orderBy :'nome' |
-                     filter: filtro">
-                        <td>{{contato.nome}}</td>
-                        <td>{{contato.email}}</td>
-                        <td>{{contato.telefone}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="row">
-            <button class="btn btn-success" ng-click="somar()">somar</button>
-            <h1 class="text">{{total}}</h1>
-        </div>
-
-    </section>
-
-
+<body>
+    <ng-view></ng-view>    
 
     <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
 
     <script src="js/main.js"></script>
     <script src="js/controllers/contatosController.js"></script>
+    <script src="js/routes/routes.js"></script>
 </body>
 
 </html>

@@ -1,1 +1,2 @@
-angular.module('contatos', []);
+angular.module('contatos', ['ngRoute'])
+;
