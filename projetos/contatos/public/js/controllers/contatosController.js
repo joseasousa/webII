@@ -2,6 +2,8 @@ angular.module('contatos')
   .controller('contatosController', function ($scope, $http) {
     $scope.total = 0;
     $scope.filtro = '';
+    $scope.sortValue= 'nome';
+    $scope.order = false;
 
     $scope.contatos = [];
 
@@ -12,9 +14,10 @@ angular.module('contatos')
       .error(function (statusText) {
         console.log(statusText);
       });
-
-    $scope.somar = function () {
-      $scope.total++;
-    };
+    
+    $scope.sort = function (fild) {
+      $scope.sortValue = fild;
+      $scope.order =!$scope.order; 
+    } 
 
   });

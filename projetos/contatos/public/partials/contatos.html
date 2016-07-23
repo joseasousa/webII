@@ -1,35 +1,40 @@
 <section class="container ">
 
-        <div class="jumbotron">
-            <h1 class="text-center">Contatos</h1>
-        </div>
+    <meu-painel titulo="Lista de Contatos" mensagem="funfou"></meu-painel>
 
-        <div class="row">
-            <input ng-model="filtro" type="search"
-             placeholder="Digite um valor" class="form-control text-center">
-        </div>
 
-        <div class="row">
+    <div class="row">
+        <input ng-model="filtro" type="search" placeholder="Digite um valor" class="form-control text-center">
+    </div>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <td><h1 class="fa fa-user" ></h1>Nome</td>
-                        <td ><h1 class="fa fa-envelope">Email</h1></td>
-                        <td ><h1 class="fa fa-phone"></h1>Telefone</td>
-                    </tr>
-                </thead>
+    <div class="row">
 
-                <tbody class="table-striped">
-                    <tr ng-repeat="contato in contatos | 
-                     orderBy :'nome' |
-                     filter: filtro">
-                        <td>{{contato.nome}}</td>
-                        <td>{{contato.email}}</td>
-                        <td>{{contato.telefone}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>     
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        <h1 class="fa fa-user"></h1>
+                        <a ng-click="sort('nome')">Nome</a>
+                    </td>
+                    <td>
+                        <h1 class="fa fa-envelope"></h1>
+                        <a ng-click="sort('email')">Email</a></td>
+                    <td>
+                        <h1 class="fa fa-phone"></h1>
+                        <a ng-click="sort('telefone')">Telefone</a></td>
+                </tr>
+            </thead>
 
-    </section>
+            <tbody class="table-striped">
+                <tr ng-repeat="contato in contatos | 
+                     orderBy:sortValue:order
+                     | filter: filtro">
+                    <td>{{contato.nome}}</td>
+                    <td>{{contato.email}}</td>
+                    <td>{{contato.telefone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>

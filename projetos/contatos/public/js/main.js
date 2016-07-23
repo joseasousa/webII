@@ -1,2 +1,1 @@
-angular.module('contatos', ['ngRoute'])
-;
+angular.module('contatos', ['ngRoute', 'meusComponentes']);
