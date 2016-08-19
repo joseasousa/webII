@@ -5,11 +5,7 @@ angular.module('contatos')
       templateUrl: 'partials/contatos.html',
       controller: 'contatosController'
     });
-    $routeProvider.when('/contatos/:contatoId', {
-      templateUrl: 'partials/formulario.html',
-      controller: 'contatosController'
-    });
-
+    
     $routeProvider.otherwise(
         {redirectTo: '/contatos'});
   });
