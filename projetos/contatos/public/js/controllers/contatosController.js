@@ -1,5 +1,6 @@
 angular.module('contatos')
-  .controller('contatosController', function ($scope, $http) {
+  .controller('contatosController', 
+  function ($scope, $http) {
     $scope.total = 0;
     $scope.filtro = '';
     $scope.sortValue= 'nome';
@@ -7,7 +8,7 @@ angular.module('contatos')
 
     $scope.contatos = [];
 
-    $http.get('/contatos')
+    $http.get('api/contatos')
       .success(function (data) {
         $scope.contatos = data;
       })

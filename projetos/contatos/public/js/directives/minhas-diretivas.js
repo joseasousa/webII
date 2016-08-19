@@ -12,4 +12,5 @@ angular.module('meusComponentes', [])
     directive.templateUrl = 'js/templates/painel.html';
 
     return directive;
-  });
+  }
+);
