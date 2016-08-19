@@ -1,20 +1,7 @@
-<section class="container ">
-
-    <meu-painel titulo="Lista de Contatos"  >
-
-    </meu-painel>
-    
-
-
-    <div class="row">
-        <input ng-model="filtro" type="search" 
-        placeholder="Digite um valor" class="form-control text-center">
-    </div>
-    
-
-    <div class="row">
-
-        <table class="table table-striped">
+ <div>
+     
+ </div>
+ <table class="table table-striped" ng-controller="contatosController">
             <thead>
                 <tr>
                     <td>
@@ -31,7 +18,7 @@
             </thead>
 
             <tbody class="table-striped">
-                <tr ng-repeat="contato in contatos | 
+                <tr ng-repeat="contato in elementos | 
                      orderBy:sortValue:order
                      | filter: filtro">
                     <td>{{contato.nome }}</td>
@@ -40,6 +27,3 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-
-</section>
