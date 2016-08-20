@@ -7,7 +7,8 @@
 
     <div class="input-group">
         <span class="input-group-btn">
-                    <a href="#/contatos/new" class="btn btn-primary" type="button">
+                    <a href="#/contatos/new" class="btn btn-primary" 
+                    type="button">
                         Novo Contato
                     </a>
                 </span>
@@ -46,7 +47,7 @@
                     <td>{{contato.telefone}}</td>
                     <td>                        
                         <button class="btn btn-danger" ng-click="del(contato._id)">Del</button>
-                        <a class="btn btn-success" >Update</a>
+                        <a class="btn btn-success" href="#/contatos/{{contato._id}}" >Update</a>
                     </td>
                 </tr>
             </tbody>

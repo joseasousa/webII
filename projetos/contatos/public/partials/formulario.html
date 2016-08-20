@@ -1,31 +1,38 @@
 <section class="container ">
-    <meu-painel titulo="Cadatro de Contatos">
-
-    </meu-painel>
-
+    <meu-painel titulo="Lista de Contatos"></meu-painel>
+<span class="form-control alert-info"
+                    ng-show = "formulario.$submitted"> {{mensagem}} </span>
     <div class="row">
-
 
         <form novalidate name="formulario" class="row" ng-submit="submeter()">
             <div class="row">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" name="nome" ng-model="contato.nome" class="form-control">
-
+                    <input type="text" name="nome" 
+                    ng-model="contato.nome" class="form-control" required>
+                    <span class="form-control alert-danger"
+                    ng-show = "formulario.$submitted && formulario.nome.$error.required"> Nome obrigatório </span>
                 </div>
 
                 <div class="form-group">
                     <label>Telefone</label>
-                    <input type="tel" name="telefone" ng-model="contato.telefone" class="form-control">
+                    <input type="tel" name="telefone" 
+                    ng-model="contato.telefone" class="form-control" required>
+                    <span class="form-control alert-danger"
+                    ng-show = "formulario.$submitted && formulario.telefone.$error.required"> Telefone obrigatório </span>
                 </div>
 
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" ng-model="contato.email" class="form-control">
+                    <input type="email" name="email"
+                     ng-model="contato.email" class="form-control" required>
+                     <span class="form-control alert-danger"
+                     ng-show = "formulario.$submitted && formulario.email.$error.required"> Email obrigatório </span>
                 </div>
 
+                <button type="submit" class="btn btn-primary" 
+                ng-disabled="formulario.$invalid">Salvar</button>
 
-                <button type="submit" class="btn btn-primary">Salvar</button>
                 <a href="#" class="btn btn-primary">Voltar</a>
                 <hr>
             </div>
