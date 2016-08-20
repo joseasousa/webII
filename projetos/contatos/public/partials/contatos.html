@@ -31,6 +31,9 @@
                     <td>
                         <h1 class="fa fa-phone"></h1>
                         <a ng-click="sort('telefone')">Telefone</a></td>
+                        <td>
+
+                        </td>
                 </tr>
             </thead>
 
@@ -41,6 +44,10 @@
                     <td>{{contato.nome }}</td>
                     <td>{{contato.email}}</td>
                     <td>{{contato.telefone}}</td>
+                    <td>                        
+                        <button class="btn btn-danger" ng-click="del(contato._id)">Del</button>
+                        <a class="btn btn-success" >Update</a>
+                    </td>
                 </tr>
             </tbody>
         </table>

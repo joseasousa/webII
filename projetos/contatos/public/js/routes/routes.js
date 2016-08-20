@@ -5,6 +5,12 @@ angular.module('contatos')
       templateUrl: 'partials/contatos.html',
       controller: 'contatosController'
     });
+
+    $routeProvider.when('/contatos/new',{
+      templateUrl: 'partials/formulario.html',
+      controller: 'contatoController'
+    });
+
     
     $routeProvider.otherwise(
         {redirectTo: '/contatos'});
