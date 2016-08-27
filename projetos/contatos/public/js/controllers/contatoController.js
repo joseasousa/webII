@@ -34,8 +34,9 @@ angular.module('contatos')
               .error(function (erro) {
                 console.log(erro);
                 $scope.mensagem = 'Não foi possível cadastrar a foto';
-              });
+              }
+              );
           }
-        }};
-
+        }
+      };
     });

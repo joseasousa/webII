@@ -3,6 +3,10 @@
 
 #!! ERROR: express is undefined. Use list command to see defined gitignore types !!#
 
+##personalisada##
+dist
+public/vendor
+
 ### Node ###
 # Logs
 logs
@@ -36,7 +40,7 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
-dist/*
+
 
 # Optional npm cache directory
 .npm
