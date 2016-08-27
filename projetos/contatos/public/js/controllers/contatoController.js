@@ -1,5 +1,5 @@
 angular.module('contatos')
-  .controller('contatoController',
+  .controller('contatoController',['$scope', '$http', '$routeParams'],
     function ($scope, $http, $routeParams) {
       $scope.contato = {};
       $scope.mensagem = '';

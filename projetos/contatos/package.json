@@ -22,20 +22,12 @@
     "mongoose": "^4.5.3"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-<<<<<<< HEAD
-    "gulp-cssmin": "^0.1.7",
-=======
->>>>>>> master
-    "gulp-html-replace": "^1.6.1",
+    "gulp": "^3.9.1",   
+    "gulp-cssmin": "^0.1.7",    
     "gulp-imagemin": "^3.0.3",
     "gulp-jshint": "^2.0.1",
     "gulp-uglify": "^2.0.0",
-<<<<<<< HEAD
     "gulp-usemin": "^0.3.24",
-=======
->>>>>>> master
     "jshint": "^2.9.3"
   }
 }

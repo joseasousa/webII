@@ -7,6 +7,7 @@ module.exports = function () {
     app.set('port', 3000);
 
     app.use(express.static('./public'));
+   // app.use(express.static('./dist'));
 
 
      //configuracao bodyParser e method override
