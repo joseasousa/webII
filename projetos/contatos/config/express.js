@@ -8,6 +8,7 @@ module.exports = function () {
 
     app.use(express.static('./public'));
 
+
      //configuracao bodyParser e method override
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());

@@ -18,6 +18,6 @@ angular.module('contatos')
     $scope.sort = function (fild) {
       $scope.sortValue = fild;
       $scope.order =!$scope.order; 
-    } 
+    };
 
   });
