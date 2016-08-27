@@ -1,11 +1,21 @@
 <section class="container ">
 
-    <meu-painel titulo="Lista de Contatos" mensagem="funfou"></meu-painel>
+    <meu-painel titulo="Lista de Contatos">
+
+    </meu-painel>
 
 
-    <div class="row">
-        <input ng-model="filtro" type="search" placeholder="Digite um valor" class="form-control text-center">
+    <div class="input-group">
+        <span class="input-group-btn">
+                    <a href="#/contatos/new" class="btn btn-primary" 
+                    type="button">
+                        Novo Contato
+                    </a>
+                </span>
+        <input class="form-control" ng-model="filtro">
     </div>
+
+
 
     <div class="row">
 
@@ -22,6 +32,9 @@
                     <td>
                         <h1 class="fa fa-phone"></h1>
                         <a ng-click="sort('telefone')">Telefone</a></td>
+                        <td>
+
+                        </td>
                 </tr>
             </thead>
 
@@ -29,9 +42,13 @@
                 <tr ng-repeat="contato in contatos | 
                      orderBy:sortValue:order
                      | filter: filtro">
-                    <td>{{contato.nome}}</td>
+                    <td>{{contato.nome }}</td>
                     <td>{{contato.email}}</td>
                     <td>{{contato.telefone}}</td>
+                    <td>                        
+                        <button class="btn btn-danger" ng-click="del(contato._id)">Del</button>
+                        <a class="btn btn-success" href="#/contatos/{{contato._id}}" >Update</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
