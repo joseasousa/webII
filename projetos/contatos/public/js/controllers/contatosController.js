@@ -1,5 +1,5 @@
 angular.module('contatos')
-  .controller('contatosController',['$scope','$http'],
+  .controller('contatosController', ['$scope', '$http',
     function ($scope, $http) {
       $scope.total = 0;
       $scope.filtro = '';
@@ -7,7 +7,6 @@ angular.module('contatos')
       $scope.order = false;
 
       $scope.contatos = [];
-
 
       $http.get('api/contatos')
         .success(function (data) {
@@ -17,28 +16,29 @@ angular.module('contatos')
           console.log(statusText);
         });
 
-      $scope.sort = function (fild) {
+      $scope.sort = sort;
+      function sort (fild) {
         $scope.sortValue = fild;
         $scope.order = !$scope.order;
-      };
+      }
 
-      $scope.del = function(id){
+      $scope.del = del;
+      function del (id) {
+        $http.delete('api/contatos/' + id)
+          .success(function () {
+            console.log('usuario deletado com sucesso');
 
-      $http.delete('api/contatos/'+id)
-        .success(function(){
-          console.log("usuario deletado com sucesso");  
+            $http.get('api/contatos')
+              .success(function (data) {
+                $scope.contatos = data;
+              })
+              .error(function (statusText) {
+                console.log(statusText);
+              });
 
-           $http.get('api/contatos')
-        .success(function (data) {
-          $scope.contatos = data;
-        })
-        .error(function (statusText) {
+          }).error(function (statusText) {
           console.log(statusText);
         });
-                
-        }).error(function (statusText) {
-          console.log(statusText);
-        });
-      };
-      
-    });
+      }
+
+    }]);

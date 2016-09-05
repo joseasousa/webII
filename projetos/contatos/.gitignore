@@ -4,7 +4,7 @@
 #!! ERROR: express is undefined. Use list command to see defined gitignore types !!#
 
 ##personalisada##
-dist
+dist/
 public/vendor
 
 ### Node ###

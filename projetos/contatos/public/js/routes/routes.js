@@ -1,4 +1,4 @@
-angular.module('contatos').config(function ($routeProvider) {
+angular.module('contatos').config(['$routeProvider',function ($routeProvider) {
 
     $routeProvider.when('/contatos', {
       templateUrl: 'partials/contatos.html',
@@ -17,4 +17,4 @@ angular.module('contatos').config(function ($routeProvider) {
 
     $routeProvider.otherwise(
         {redirectTo: '/contatos'});
-  });
+  }]);

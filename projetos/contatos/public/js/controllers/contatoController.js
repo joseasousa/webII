@@ -1,5 +1,5 @@
 angular.module('contatos')
-  .controller('contatoController',['$scope', '$http', '$routeParams'],
+  .controller('contatoController', ['$scope', '$http', '$routeParams',
     function ($scope, $http, $routeParams) {
       $scope.contato = {};
       $scope.mensagem = '';
@@ -15,7 +15,8 @@ angular.module('contatos')
           });
       }
 
-      $scope.submeter = function () {
+      $scope.submeter = submeter;
+      function submeter () {
         if ($scope.formulario.$valid) {
           if ($routeParams.id) {
             $http.put('/api/contatos/' + $scope.contato._id, $scope.contato)
@@ -35,8 +36,8 @@ angular.module('contatos')
                 console.log(erro);
                 $scope.mensagem = 'Não foi possível cadastrar a foto';
               }
-              );
+            );
           }
         }
-      };
-    });
+      }
+    }]);
