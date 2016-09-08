@@ -6,12 +6,12 @@ module.exports = function () {
   var app = express();
   app.set('port', 3000);
 
-  if (process.env.NODE_ENV = 'production') {
-    app.use(express.static('./dist'));
-  } else {
+  if (process.env.NODE_ENV = 'development') {
     app.use(express.static('./public'));
+  } else {
+    app.use(express.static('./dist'));
   }
-
+  
   // configuracao bodyParser e method override
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
