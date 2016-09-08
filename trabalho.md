@@ -1,6 +1,6 @@
 #Trabalho weII
 
-Criar Loja online com back-end em node e front-end em angular.
+Criar Loja online com back-end em node e front-end em angular. data de entrega 16/09
 
 ##Back End
 
